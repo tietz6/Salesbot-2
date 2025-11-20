@@ -20,7 +20,18 @@ async def css():
 @router.post("/start")
 async def start(req: Request):
     data = await req.json()
-    manager_id = data.get("manager_id","unknown")
+    # Support both manager_id and chat_id for telegram compatibility
+    manager_id = data.get("manager_id") or data.get("chat_id")
+    if manager_id is not None:
+        manager_id = str(manager_id)
+    else:
+        manager_id = "unknown"
+    
+    # Quick response for probe requests (discovery)
+    probe = data.get("probe", False)
+    if probe:
+        return {"ok": True, "available": True}
+    
     ctx = data.get("context","")
     # also create dialog_memory session for same id so we can append later
     rec = new_session(manager_id, ctx)
@@ -29,6 +40,13 @@ async def start(req: Request):
         dm_start(manager_id)  # returns new id, но в service.stop_and_score делаем бэкофф по arena-id
     except Exception:
         pass
+    
+    # For telegram, add a user-friendly reply
+    if data.get("chat_id"):
+        rec["reply"] = f"🎤 Голосовая арена запущена!\n\n" \
+                       f"Сессия: {rec.get('session_id', 'unknown')}\n\n" \
+                       f"Начинай тренировку голосового общения с клиентами!"
+    
     return rec
 
 @router.get("/start_ui/{manager_id}", response_class=HTMLResponse)

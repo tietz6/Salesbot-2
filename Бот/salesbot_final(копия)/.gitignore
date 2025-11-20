@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Session/data files - exclude generated session files but keep configuration files
+modules/*/v*/data/sessions/
+modules/trainer_dialog_engine/*/data/*.json
+modules/voice_arena/*/data/sessions/
+modules/dialog_memory/*/data/sessions/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
