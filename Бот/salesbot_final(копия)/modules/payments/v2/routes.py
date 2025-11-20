@@ -4,6 +4,32 @@ from .engine import PaymentsEngine
 
 router = APIRouter(prefix="/payments/v2", tags=["payments_v2"])
 
+@router.post("/start")
+async def start_telegram(req: Request):
+    """Telegram bot integration endpoint - accepts chat_id"""
+    data = await req.json()
+    chat_id = data.get("chat_id")
+    probe = data.get("probe", False)
+    
+    # Quick response for probe requests (discovery)
+    if probe:
+        return {"ok": True, "available": True}
+    
+    if not chat_id:
+        return {"error": "chat_id required"}
+    
+    # Payments module provides information
+    return {
+        "ok": True,
+        "reply": "💳 Модуль платежей\n\n"
+                 "Этот модуль используется для создания платёжных счетов.\n"
+                 "Для создания счета используй:\n"
+                 "/payments/v2/invoice/{deal_id}\n\n"
+                 "Пример:\n"
+                 'POST /payments/v2/invoice/deal123\n'
+                 '{"amount": 1000, "currency": "KGS"}'
+    }
+
 @router.post("/invoice/{deal_id}")
 async def invoice(deal_id: str, req: Request):
     data = await req.json()
