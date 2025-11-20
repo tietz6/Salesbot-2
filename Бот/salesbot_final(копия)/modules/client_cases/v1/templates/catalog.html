@@ -1,0 +1,22 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/client_cases/v1/static/cases.css">
+<h2 class="h1">Библиотека реальных кейсов</h2>
+<p>Фильтры: <a class="link" href="/client_cases/v1/catalog?goal=anniversary">годовщина</a> ·
+<a class="link" href="/client_cases/v1/catalog?goal=birthday">день рождения</a> ·
+<a class="link" href="/client_cases/v1/catalog?budget=low">до 2000 KGS</a></p>
+<div class="grid">
+{% for c in cases %}
+  <div class="case">
+    <h3>{{ c.title }}</h3>
+    <div class="meta">{{ c.goal }} · {{ c.persona }} · ≤ {{ c.deadline_days }} дн. · {{ c.budget_txt }}</div>
+    <p>{{ c.story[:160] }}...</p>
+    <div class="cta">
+      <a class="btn" href="/client_cases/v1/view/{{ c.id }}">Открыть</a>
+      <a class="link" href="/client_cases/v1/arena/{{ c.id }}">В Арена</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

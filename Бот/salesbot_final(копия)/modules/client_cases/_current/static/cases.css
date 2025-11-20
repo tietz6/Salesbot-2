@@ -1,0 +1,9 @@
+
+@import url('/mini/brand/static/brand.css');
+.case{background:var(--card);border:1px solid #242433;border-radius:16px;padding:16px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.meta{color:var(--muted);font-size:12px;margin:4px 0 10px}
+.tag{display:inline-block;padding:4px 8px;border:1px solid #303042;border-radius:999px;margin-right:6px;color:var(--muted);font-size:12px}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:8px}
+.kv div{padding:4px 0;border-bottom:1px solid #2a2a36}
+.cta{display:flex;gap:8px;margin-top:10px}

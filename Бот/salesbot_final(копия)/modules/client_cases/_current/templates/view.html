@@ -1,0 +1,24 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/client_cases/v1/static/cases.css">
+<div class="case">
+  <h2>{{ case.title }}</h2>
+  <div class="meta">{{ case.goal }} · {{ case.persona }} · ≤ {{ case.deadline_days }} дн. · {{ case.budget_txt }}</div>
+  <div class="kv">
+    <div>Цель</div><div>{{ case.goal }}</div>
+    <div>Бюджет</div><div>{{ case.budget_txt }}</div>
+    <div>Дедлайн</div><div>{{ case.deadline_days }} дней</div>
+    <div>Ограничения</div><div>{{ ', '.join(case.constraints) }}</div>
+    <div>Рекомендуемые пакеты</div><div>{{ ', '.join(case.suggested_packages) }}</div>
+  </div>
+  <h3 style="margin-top:16px;">История</h3>
+  <p>{{ case.story }}</p>
+  <h3>«Как ответил бы топ‑продажник»</h3>
+  <p>{{ case.top_seller_answer }}</p>
+  <div class="cta">
+    <a class="btn" href="/client_cases/v1/arena/{{ case.id }}">Запустить в Арене</a>
+    <a class="link" href="/client_cases/v1/catalog">← В каталог</a>
+  </div>
+</div>
+{% endblock %}

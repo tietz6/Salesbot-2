@@ -1,0 +1,39 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/salary_reports/v1/static/salary.css">
+<div class="h1">Отчёт по доходам — {{ manager_id }}</div>
+
+<div class="kpi">
+  <div class="item"><div class="label">Продаж (период)</div><div class="value">{{ kpi.sales }}</div></div>
+  <div class="item"><div class="label">Средний чек</div><div class="value">{{ kpi.avg_check }} сом</div></div>
+  <div class="item"><div class="label">Текущий процент</div><div class="value">{{ kpi.percent }}%</div></div>
+  <div class="item"><div class="label">Доход менеджера</div><div class="value">{{ kpi.manager_income }} сом</div></div>
+  <div class="item"><div class="label">Доход генератора (5%)</div><div class="value">{{ kpi.generator_income }} сом</div></div>
+</div>
+
+<div class="chart">
+  <h3>Динамика продаж</h3>
+  <img src="/salary_reports/v1/chart/{{ manager_id }}?period={{ period }}" style="width:100%;border-radius:12px;">
+</div>
+
+<h3 style="margin-top:16px;">Сделки в периоде</h3>
+<table class="table">
+  <tr><th>ID</th><th>Клиент</th><th>Сумма</th><th>Статус</th></tr>
+  {% for d in deals %}
+  <tr>
+    <td>{{ d.id }}</td>
+    <td>{{ d.client }}</td>
+    <td>{{ d.amount }} сом</td>
+    <td>{{ d.status }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<div class="card">
+  <div class="badge">Прогноз</div>
+  <p>Ещё {{ forecast.to_next_level }} продаж до следующего уровня ({{ forecast.next_percent }}%).</p>
+  <p>Прогноз дохода при текущем темпе: {{ forecast.forecast_income }} сом.</p>
+</div>
+
+{% endblock %}

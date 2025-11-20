@@ -1,0 +1,13 @@
+
+@import url('/mini/brand/static/brand.css');
+.wrap{display:grid;grid-template-columns:1fr;gap:16px}
+.card{background:var(--card);border:1px solid #242433;border-radius:16px;padding:16px}
+.msg{padding:10px 12px;border-radius:12px;margin:6px 0}
+.msg.manager{background:#1c2030}
+.msg.client{background:#1e2a1e}
+.kpi{display:flex;gap:12px;flex-wrap:wrap}
+.kpi .item{background:#12131a;border:1px solid #242433;border-radius:12px;padding:10px 12px;min-width:140px}
+.kpi .label{color:var(--muted);font-size:12px}
+.kpi .value{font-size:18px;font-weight:700}
+.badge{padding:4px 8px;border-radius:999px;background:#1d1d27;border:1px solid #2c2c3a;color:var(--muted);font-size:12px}
+.controls a{margin-right:8px}

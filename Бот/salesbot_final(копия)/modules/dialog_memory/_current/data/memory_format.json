@@ -1,0 +1,12 @@
+{
+  "schema": {
+    "manager_id": "string",
+    "session_id": "string",
+    "timestamp": "ISO-8601",
+    "history": "list of {role, content, stage}",
+    "errors": "list of detected mistakes",
+    "strengths": "list of strong sides",
+    "score": "0..100",
+    "next_recommendations": "list of tips"
+  }
+}

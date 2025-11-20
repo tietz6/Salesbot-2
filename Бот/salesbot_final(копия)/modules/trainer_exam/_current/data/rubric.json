@@ -1,0 +1,13 @@
+{
+  "weights": {
+    "warmth": 0.25,
+    "empathy": 0.25,
+    "questions": 0.2,
+    "payment": 0.15,
+    "upsell": 0.15
+  },
+  "thresholds": {
+    "pass": 70,
+    "excellent": 90
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "flows": [
+    "pre_texts_warmup",
+    "two_texts_choice",
+    "double_demo_push",
+    "ladder_2_to_4",
+    "gentle_answers"
+  ],
+  "products": [
+    {
+      "id": "alive_photos",
+      "title": "Оживлённые фотографии"
+    },
+    {
+      "id": "song_montage",
+      "title": "Монтаж песни + оживлённые фото"
+    },
+    {
+      "id": "anime_story",
+      "title": "Анимированная история с музыкой"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/edu_lessons/v1/static/edu.css">
+<div class="lesson-card">
+  <div class="lesson-title">{{ lesson.title }}</div>
+  <div class="lesson-meta">{{ lesson.category }} · {{ lesson.duration }} · {{ lesson.type|upper }}</div>
+  {% for p in lesson.content %}
+    <p>{{ p }}</p>
+  {% endfor %}
+  {% if lesson.checklist %}
+  <h4>Чеклист</h4>
+  <ul class="checklist">
+    {% for c in lesson.checklist %}<li>• {{ c }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if lesson.test %}
+  <div class="badge">Есть мини-тест</div>
+  {% endif %}
+</div>
+<div class="lesson-actions">
+  <a class="btn" href="/edu_lessons/v1/test/{{ lesson.id }}">Пройти тест</a>
+  <a class="link" href="/edu_lessons/v1/catalog">← В каталог</a>
+</div>
+{% endblock %}

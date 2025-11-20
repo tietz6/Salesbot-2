@@ -1,0 +1,19 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/edu_lessons/v1/static/edu.css">
+<h2 class="h1">Обучающий центр</h2>
+<div class="grid">
+  {% for item in lessons %}
+  <div class="card">
+    <h3 class="lesson-title">{{ item.title }}</h3>
+    <div class="lesson-meta">{{ item.category }} · {{ item.duration }} · {{ item.type|upper }}</div>
+    <div>{{ item.preview }}</div>
+    <div class="lesson-actions">
+      <a class="btn" href="/edu_lessons/v1/view/{{ item.id }}">Открыть</a>
+      <a class="link" href="/edu_lessons/v1/test/{{ item.id }}">Тест</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

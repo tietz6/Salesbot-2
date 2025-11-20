@@ -1,0 +1,51 @@
+[
+  {
+    "id": "too_short",
+    "pattern": null,
+    "check": "len(reply.strip())<25",
+    "penalty": 2,
+    "msg": "Слишком коротко — нет ценности."
+  },
+  {
+    "id": "no_question",
+    "pattern": null,
+    "check": "'?' not in reply",
+    "penalty": 2,
+    "msg": "Нет уточняющего вопроса."
+  },
+  {
+    "id": "aggressive",
+    "pattern": "(успокойтесь|вы не правы|чушь|бред)",
+    "check": null,
+    "penalty": 3,
+    "msg": "Агрессия недопустима."
+  },
+  {
+    "id": "many_punct",
+    "pattern": "([!?]{2,})",
+    "check": null,
+    "penalty": 1,
+    "msg": "Слишком эмоционально: '!!??'."
+  },
+  {
+    "id": "offtopic",
+    "pattern": "(не по теме|не об этом)",
+    "check": null,
+    "penalty": 2,
+    "msg": "Уход от темы."
+  },
+  {
+    "id": "no_value_words",
+    "pattern": null,
+    "check": "not any(w in reply.lower() for w in ['результат','выгода','ценность','поможет'])",
+    "penalty": 1,
+    "msg": "Нет привязки к ценности/результату."
+  },
+  {
+    "id": "no_cta",
+    "pattern": null,
+    "check": "not any(w in reply.lower() for w in ['предлагаю','давайте','перейдём','назначим'])",
+    "penalty": 1,
+    "msg": "Нет следующего шага (CTA)."
+  }
+]

@@ -1,0 +1,10 @@
+
+@import url('/mini/brand/static/brand.css');
+.lesson-card{background:var(--card);border:1px solid #242433;border-radius:16px;padding:16px;margin:12px 0}
+.lesson-title{font-weight:700;font-size:18px;margin:0 0 6px 0}
+.lesson-meta{color:var(--muted);font-size:12px;margin-bottom:8px}
+.lesson-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+table.sleek{width:100%;border-collapse:collapse}
+table.sleek th,table.sleek td{border-bottom:1px solid #2a2a36;padding:8px 10px;text-align:left}
+.checklist li{margin:4px 0}
+.badge{padding:4px 8px;border-radius:999px;background:#1d1d27;border:1px solid #2c2c3a;color:var(--muted);font-size:12px}

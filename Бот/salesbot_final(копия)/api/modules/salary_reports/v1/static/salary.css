@@ -1,0 +1,12 @@
+
+@import url('/mini/brand/static/brand.css');
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{padding:8px 10px;border-bottom:1px solid #2a2a36;text-align:left}
+.h1{font-size:24px;font-weight:700;margin:0 0 12px 0}
+.card{background:var(--card);border:1px solid #242433;border-radius:16px;padding:16px;margin:12px 0}
+.kpi{display:flex;gap:16px;flex-wrap:wrap}
+.kpi .item{flex:1 1 160px;background:#13131a;border:1px solid #242433;border-radius:14px;padding:12px}
+.kpi .item .label{color:var(--muted);font-size:12px}
+.kpi .item .value{font-size:20px;font-weight:700}
+.badge{padding:4px 8px;border-radius:999px;background:#1d1d27;border:1px solid #2c2c3a;color:var(--muted);font-size:12px}
+.chart{margin-top:16px;padding:16px;border-radius:16px;border:1px solid #2a2a36;background:#14141c}

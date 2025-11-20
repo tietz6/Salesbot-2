@@ -1,0 +1,122 @@
+{
+  "greeting": {
+    "weight": 0.1,
+    "checks": [
+      {
+        "id": "tone_warm",
+        "desc": "Тёплое приветствие, уважение к имени",
+        "weight": 0.4
+      },
+      {
+        "id": "intro_clear",
+        "desc": "Коротко кто вы и цель звонка",
+        "weight": 0.3
+      },
+      {
+        "id": "agenda",
+        "desc": "Предложена мини-повестка (1–2 пункта)",
+        "weight": 0.3
+      }
+    ]
+  },
+  "qualification": {
+    "weight": 0.25,
+    "checks": [
+      {
+        "id": "need_questions",
+        "desc": "Есть 2–3 вопроса о потребности",
+        "weight": 0.35
+      },
+      {
+        "id": "budget_timeline",
+        "desc": "Уточнены бюджет/сроки/ограничения",
+        "weight": 0.35
+      },
+      {
+        "id": "decision_process",
+        "desc": "Понята роль ЛПР и процесс",
+        "weight": 0.3
+      }
+    ]
+  },
+  "support": {
+    "weight": 0.15,
+    "checks": [
+      {
+        "id": "paraphrase",
+        "desc": "Переформулирование и эмпатия",
+        "weight": 0.4
+      },
+      {
+        "id": "proof",
+        "desc": "Дано доказательство/кейс/цифры",
+        "weight": 0.3
+      },
+      {
+        "id": "bridge",
+        "desc": "Связь потребности с решением",
+        "weight": 0.3
+      }
+    ]
+  },
+  "offer": {
+    "weight": 0.2,
+    "checks": [
+      {
+        "id": "value_driven",
+        "desc": "Ценность > фичи",
+        "weight": 0.35
+      },
+      {
+        "id": "structure",
+        "desc": "Предложение структурно и понятно",
+        "weight": 0.35
+      },
+      {
+        "id": "risk_reversal",
+        "desc": "Сняты риски/гарантии/условия",
+        "weight": 0.3
+      }
+    ]
+  },
+  "demo": {
+    "weight": 0.15,
+    "checks": [
+      {
+        "id": "relevance",
+        "desc": "Демонстрация по кейсу клиента",
+        "weight": 0.45
+      },
+      {
+        "id": "interaction",
+        "desc": "Задаёт вопросы во время демо",
+        "weight": 0.25
+      },
+      {
+        "id": "cta_next",
+        "desc": "Переход к следующему шагу",
+        "weight": 0.3
+      }
+    ]
+  },
+  "final": {
+    "weight": 0.15,
+    "checks": [
+      {
+        "id": "summary",
+        "desc": "Короткое резюме договорённостей",
+        "weight": 0.35
+      },
+      {
+        "id": "clear_next",
+        "desc": "Чёткий следующий шаг/дата/условия",
+        "weight": 0.4
+      },
+      {
+        "id": "close",
+        "desc": "Попытка закрытия/мягкое давление",
+        "weight": 0.25
+      }
+    ]
+  }
+}

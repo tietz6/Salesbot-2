@@ -1,0 +1,37 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/voice_arena/v1/static/arena.css">
+<div class="wrap">
+  <div class="card">
+    <h2>Voice Arena — Сессия</h2>
+    <div class="badge">manager: {{ manager_id }}</div>
+    <div class="badge">session: {{ session_id }}</div>
+    <p>Контекст: {{ ctx }}</p>
+    <div class="kpi">
+      <div class="item"><div class="label">Эмо‑ярлык</div><div class="value">{{ last.label or '—' }}</div></div>
+      <div class="item"><div class="label">Уверенность</div><div class="value">{{ last.confidence_score or 0 }}</div></div>
+      <div class="item"><div class="label">Эмоциональность</div><div class="value">{{ last.emotion_score or 0 }}</div></div>
+      <div class="item"><div class="label">Скорость</div><div class="value">{{ last.speed_score or 0 }}</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Диалог</h3>
+    {% for m in history %}
+      <div class="msg {{ m.role }}">
+        <b>{{ 'Менеджер' if m.role=='manager' else 'Клиент' }}:</b> {{ m.content }}
+        {% if m.metrics %}<div class="badge">emo: {{ m.metrics.label }}, conf: {{ m.metrics.confidence_score }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="card">
+    <h3>Управление</h3>
+    <div class="controls">
+      <a class="btn" href="/voice_arena/v1/start_ui/{{ manager_id }}">🔄 Новая сессия</a>
+      <a class="btn" href="/voice_arena/v1/stop/{{ manager_id }}/{{ session_id }}">⛳ Завершить и оценить</a>
+    </div>
+    <p>Отправляй POST в <code>/voice_arena/v1/turn</code> с JSON:
+    {"manager_id":"{{ manager_id }}","session_id":"{{ session_id }}","text":"...", "features":{"speed_wpm":150,"pauses":2,"energy":0.75,"clarity":0.8,"pitch_var":0.6,"emotion_hint":"exc"}}</p>
+  </div>
+</div>
+{% endblock %}

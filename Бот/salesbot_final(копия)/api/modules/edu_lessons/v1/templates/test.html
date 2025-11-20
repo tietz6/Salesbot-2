@@ -1,0 +1,19 @@
+
+{% extends "/apps/mini_webkit/brand/v1/templates/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/edu_lessons/v1/static/edu.css">
+<div class="lesson-card">
+  <div class="lesson-title">Тест: {{ lesson.title }}</div>
+  <p><b>Вопрос:</b> {{ lesson.test.question }}</p>
+  <table class="sleek">
+    {% for opt in lesson.test.options %}
+      <tr><td>{{ loop.index0 }}</td><td>{{ opt }}</td></tr>
+    {% endfor %}
+  </table>
+  <p>Отправьте ответ POST-запросом на <code>/edu_lessons/v1/test/{{ lesson.id }}</code> с JSON: {"answer": индекс}</p>
+</div>
+<div class="lesson-actions">
+  <a class="link" href="/edu_lessons/v1/view/{{ lesson.id }}">← К уроку</a>
+  <a class="link" href="/edu_lessons/v1/catalog">← В каталог</a>
+</div>
+{% endblock %}
